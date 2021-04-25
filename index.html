@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<title>Kalkulator podatku od dochodów</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+	<link rel="stylesheet" href="style.css" type="text/css" />
+<script>
+ function oblicz(){
+	var a = document.getElementById("a").value;
+    a = parseInt(a);
+    var b = 0;
+    b = parseInt(b);
+    var c = 0;
+    c = parseInt(c);
+    var d = 0;
+    d = parseInt(d);
+    if (a>85528){b=((a-85528)*0.32)+14539;
+    } else {b = a*0.17};
+
+    if(a<=8000){c = 1360;
+    } else if(a<=13000){c = 834.88*((a - 8000)/5000);
+    } else if(a<=85528){c = 525.12;
+    } else if(a<=127000){c = 525.12*((a - 85528)/41472);
+    } else {c = 0;}
+    
+    if(b - c<0){d = 0;
+    }else {d = b - c}
+	document.getElementById("podatek").innerHTML = d + " Pln";
+ }
+ 
+</script>
+</head>
+
+<body>
+	
+	<div id="container">
+	<center>
+	<div class="topBar">Kalkulator podatku od dochodów</div>
+    </center>
+	</div>
+    <br/><br/><br/><br/>
+    <center>
+    <label class = "topbar" for ="a" >Podaj podstawę obliczenia podatku</label>
+    <br/><br/>
+	<input class = "nn2" type="text" dir="rtl" id="a">
+	<input class = "nn3" type="button" value="Wykonaj" onclick="oblicz()"/>
+    </center>
+    <center>
+	 <div class="topbar">Podatek wynosi:</div>
+	<div class = "nn" id="podatek">0</div>
+    </center>
+
+	</div>
+	</div>
+	
+</body>
+</html>
